@@ -3,7 +3,7 @@ import { AlunosController } from './alunos.controller';
 import { IAlunoUseCase } from 'src/core/application/ialuno.use-case';
 import AlunoUseCase from 'src/core/application/aluno.use-case';
 import { IAlunoRepository } from 'src/core/domain/repositories/ialuno.repository';
-import AlunoMemoryRepository from 'src/adapter/driven/repository/aluno-memory.repositry';
+import AlunoMemoryRepository from 'src/adapter/driven/repository/aluno-memory.repository';
 
 @Module({
   controllers: [AlunosController],

@@ -1,4 +1,4 @@
-import AlunoMemoryRepository from '../../../src/adapter/driven/repository/aluno-memory.repositry';
+import AlunoMemoryRepository from '../../../src/adapter/driven/repository/aluno-memory.repository';
 import AlunoUseCase from '../../../src/core/application/aluno.use-case';
 
 describe('AlunoUseCase', () => {
