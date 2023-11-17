@@ -5,13 +5,15 @@ import ICursoRepository, {
   ICursoRepository as ICursoRepositorySymbol,
 } from '../domain/repositories/icurso.repository';
 import ICreateCursoUseCase from './icreate-curso.use-case';
+import CursoDto from '../domain/dto/output/curso.dto';
 
 export default class CreateCursoUseCase implements ICreateCursoUseCase {
   constructor(
     @Inject(ICursoRepositorySymbol)
     private readonly repository: ICursoRepository,
   ) {}
-  async execute(input: CreateCursoDto): Promise<any> {
+
+  async execute(input: CreateCursoDto): Promise<CursoDto> {
     const curso = Curso.create(input.nome, input.descricao, input.professorId);
 
     input.horarios.map((horario) =>

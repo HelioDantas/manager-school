@@ -44,4 +44,12 @@ export default class Curso {
   addMaterialDidatico(nome: string, link: string) {
     this.materialDidatico.push(MaterialDidatico.create(nome, link));
   }
+
+  clearMaterialDidaticos() {
+    this.materialDidatico = [];
+  }
+
+  clearHorarios() {
+    this.horarios = [];
+  }
 }
