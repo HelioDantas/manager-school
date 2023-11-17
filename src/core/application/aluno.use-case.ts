@@ -7,6 +7,7 @@ import IAlunoRepository, {
   IAlunoRepository as IAlunoRepositorySymbol,
 } from '../domain/repositories/ialuno.repository';
 import IAlunoUseCase from './ialuno.use-case';
+import AlunoMapper from '../domain/mappers/aluno.mapper';
 
 export default class AlunoUseCase implements IAlunoUseCase {
   constructor(
@@ -22,10 +23,7 @@ export default class AlunoUseCase implements IAlunoUseCase {
     );
 
     await this.repository.create(aluno);
-    return {
-      ...aluno,
-      email: aluno.email.toString(),
-    };
+    return AlunoMapper.toAlunoDto(aluno);
   }
 
   async updateAluno(input: AlunoUpdateDto): Promise<AlunoDto | undefined> {
@@ -39,21 +37,14 @@ export default class AlunoUseCase implements IAlunoUseCase {
 
     await this.repository.save(aluno);
 
-    return {
-      ...aluno,
-      email: aluno.email.toString(),
-    };
+    return AlunoMapper.toAlunoDto(aluno);
   }
 
   async listAlunos(): Promise<AlunoDto[]> {
-    console.log(this.repository);
     const alunos = await this.repository.find();
 
     return alunos.map((aluno) => {
-      return {
-        ...aluno,
-        email: aluno.email.toString(),
-      };
+      return AlunoMapper.toAlunoDto(aluno);
     });
   }
 }
