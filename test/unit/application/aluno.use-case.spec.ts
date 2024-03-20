@@ -5,7 +5,7 @@ describe('AlunoUseCase', () => {
   describe('createAluno', () => {
     it('criar aluno', async () => {
       const input = {
-        nome: 'teste',
+        nome: 'teste2',
         nascimento: new Date(1996, 1, 15),
         email: 'test@test.com',
         telefone: '21999999999',
